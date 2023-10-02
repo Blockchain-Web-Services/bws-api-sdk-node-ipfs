@@ -1,0 +1,33 @@
+{
+  "name": "@Blockchain-Web-Services/bws-library-node-ipfs",
+  "version": "1.0.0",
+  "description": "BWS Node IPFS library.",
+  "main": "_index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockchain-Web-Services/bws-library-node-ipfs.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "bws",
+    "node",
+    "common"
+  ],
+  "author": "Blockchain-Web-Services",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blockchain-Web-Services/bws-library-node-ipfs/issues"
+  },
+  "homepage": "https://github.com/Blockchain-Web-Services/bws-library-node-ipfs#readme",
+  "dependencies": {
+    "@pinata/sdk": "^2.1.0",
+    "axios": "^1.5.1",
+    "module": "^1.2.5",
+    "stream": "^0.0.2"
+  }
+}
