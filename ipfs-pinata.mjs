@@ -13,7 +13,7 @@ import axios from 'axios';
  * @param {nftJson} json NFT json
  * @returns IPFS Hash
  */
-async function uploadJSONToIPFSAsync(ipfsKey, ipfsSecretKey, nftJson) {
+async function uploadJSONToIPFSAsync_Pinata(ipfsKey, ipfsSecretKey, nftJson) {
   const pinata = new pinataSDK({ pinataApiKey: ipfsKey, pinataSecretApiKey: ipfsSecretKey });
   return (await pinata.pinJSONToIPFS(nftJson)).IpfsHash;
 }
@@ -25,7 +25,7 @@ async function uploadJSONToIPFSAsync(ipfsKey, ipfsSecretKey, nftJson) {
  * @param {stream} ReadStream for file to upload
  * @returns IPFS Hash
  */
-async function uploadStreamToIPFSAsync(ipfsKey, ipfsSecretKey, stream) {
+async function uploadStreamToIPFSAsync_Pinata(ipfsKey, ipfsSecretKey, stream) {
 
   const pinata = new pinataSDK({ pinataApiKey: ipfsKey, pinataSecretApiKey: ipfsSecretKey });
   const options = {
@@ -42,10 +42,10 @@ async function uploadStreamToIPFSAsync(ipfsKey, ipfsSecretKey, stream) {
  * Uplaod NFT metadata into IPFS server and return ipfs url.
  * @param {ipfsKey} string Pinata API key
  * @param {ipfsSecretKey} string Pinata API Secret key
- * @param {stream} ReadStream for file to upload
+ * @param {url} string URL to file to upload
  * @returns IPFS Hash
  */
-async function uploadURLToIPFSAsync(ipfsKey, ipfsSecretKey, url) {
+async function uploadURLToIPFSAsync_Pinata(ipfsKey, ipfsSecretKey, url) {
 
   let response = await axios.get(encodeURI(url), {
     responseType: 'arraybuffer',
@@ -55,10 +55,10 @@ async function uploadURLToIPFSAsync(ipfsKey, ipfsSecretKey, url) {
   var stream = new Readable();
   stream.push(buffer);
   stream.push(null);
-  return await uploadStreamToIPFSAsync(ipfsKey, ipfsSecretKey, stream);
+  return await uploadStreamToIPFSAsync_Pinata(ipfsKey, ipfsSecretKey, stream);
 
 }
 
 
 
-export { uploadJSONToIPFSAsync, uploadStreamToIPFSAsync, uploadURLToIPFSAsync };
+export { uploadJSONToIPFSAsync_Pinata, uploadStreamToIPFSAsync_Pinata, uploadURLToIPFSAsync_Pinata };
