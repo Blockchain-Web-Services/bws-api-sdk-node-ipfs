@@ -1,6 +1,6 @@
 {
   "name": "@Blockchain-Web-Services/bws-library-node-ipfs",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "BWS Node IPFS library.",
   "main": "_index.mjs",
   "scripts": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/Blockchain-Web-Services/bws-library-node-ipfs#readme",
   "dependencies": {
-    "@pinata/sdk": "^2.1.0",
     "axios": "^1.5.1",
     "form-data": "^4.0.0",
     "module": "^1.2.5",
