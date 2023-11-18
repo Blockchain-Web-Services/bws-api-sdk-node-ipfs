@@ -12,7 +12,7 @@ const FormData = require('form-data');
  * @returns IPFS Hash
  */
 // ! private function
-async function uploadToIPFSAsync(config, pin = true, content, contentType = "application/json") {
+async function uploadToIPFSAsync(config, content, pin = true, contentType = "application/json") {
 
   const extension = contentType?.split("/")[1] ?? "file";
 
@@ -34,6 +34,8 @@ async function uploadToIPFSAsync(config, pin = true, content, contentType = "app
   const headers = {
     ...formData.getHeaders(),
     'Authorization': authHeader,
+    maxContentLength: Infinity, //this is needed to prevent axios from erroring out with large files
+    maxBodyLength: Infinity
   };
 
   let ipfsHash = null;
@@ -63,7 +65,7 @@ async function uploadJSONToIPFSAsync(config, json, pin = true) {
     throw new Error("Error uploading to IPFS, no JSON provided");
 
   const jsonString = JSON.stringify(json);
-  return await uploadToIPFSAsync(config, pin, jsonString, "application/json");
+  return await uploadToIPFSAsync(config, jsonString, pin, "application/json");
 }
 
 /**
@@ -74,10 +76,10 @@ async function uploadJSONToIPFSAsync(config, json, pin = true) {
  * @param {contentType} string content type of stream
  * @returns IPFS Hash
  */
-async function uploadStreamToIPFSAsync(config, pin = true, stream, contentType = "application/octet-stream") {
+async function uploadStreamToIPFSAsync(config, stream, pin = true, contentType = "application/octet-stream") {
   if (!stream)
     throw new Error("Error uploading to IPFS, no stream provided");
-  return await uploadToIPFSAsync(config, pin, stream, contentType);
+  return await uploadToIPFSAsync(config, stream, pin, contentType);
 }
 
 
@@ -105,7 +107,7 @@ async function uploadURLToIPFSAsync(config, url, pin = true, contentType = "appl
   } catch (error) {
     throw new Error("Error downloading URL" + error);
   }
-  return await uploadStreamToIPFSAsync(config, pin, stream, contentType);
+  return await uploadStreamToIPFSAsync(config, stream, pin, contentType);
 
 }
 

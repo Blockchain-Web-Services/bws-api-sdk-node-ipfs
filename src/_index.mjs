@@ -13,8 +13,8 @@ class BWSIPFS {
         return await uploadURLToIPFSAsync(this.config, URL);
     }
 
-    async uploadStreamAsync(stream) {
-        return await uploadStreamToIPFSAsync(this.config, stream);
+    async uploadStreamAsync(stream, contentType = "application/octet-stream") {
+        return await uploadStreamToIPFSAsync(this.config, stream, true, contentType);
     }
 }
 
