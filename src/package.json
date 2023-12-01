@@ -14,6 +14,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "keywords": [
+    "ipfs",
+    "blockchain",
     "bws",
     "node",
     "common"
