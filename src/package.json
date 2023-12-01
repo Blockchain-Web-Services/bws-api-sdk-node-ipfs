@@ -1,6 +1,6 @@
 {
-  "name": "@Blockchain-Web-Services/bws-library-node-ipfs",
-  "version": "1.3.0",
+  "name": "@bws/ipfs",
+  "version": "1.0.0",
   "description": "BWS Node IPFS library.",
   "main": "_index.mjs",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blockchain-Web-Services/bws-library-node-ipfs.git"
+    "url": "git+https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -21,13 +21,10 @@
   "author": "Blockchain-Web-Services",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Blockchain-Web-Services/bws-library-node-ipfs/issues"
+    "url": "https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs/issues"
   },
-  "homepage": "https://github.com/Blockchain-Web-Services/bws-library-node-ipfs#readme",
+  "homepage": "https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs#readme",
   "dependencies": {
-    "axios": "^1.5.1",
-    "form-data": "^4.0.0",
-    "module": "^1.2.5",
-    "stream": "^0.0.2"
+    "axios": "^1.5.1"
   }
 }
