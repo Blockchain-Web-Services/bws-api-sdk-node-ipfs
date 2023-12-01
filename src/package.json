@@ -1,5 +1,5 @@
 {
-  "name": "@bws/ipfs",
+  "name": "@blockchain-web-services/ipfs",
   "version": "1.0.0",
   "description": "BWS Node IPFS library.",
   "main": "_index.mjs",
