@@ -11,14 +11,14 @@
     "url": "git+https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "bws",
     "node",
     "common"
   ],
-  "author": "Blockchain-Web-Services",
+  "author": "Blockchain Web Services",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs/issues"
