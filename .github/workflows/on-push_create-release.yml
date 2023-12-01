@@ -26,4 +26,4 @@ jobs:
           npm ci
           npm publish
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.MPMJS_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.MPMJS_TOKEN }}
