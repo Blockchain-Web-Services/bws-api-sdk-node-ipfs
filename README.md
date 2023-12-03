@@ -2,6 +2,8 @@
 
 Official Blockchain Web Services [IPFS solution](https://docs.bws.ninja/solutions/bws.ipfs.upload) NodeJS SDK.
 
+[![Create Release](https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs/actions/workflows/on-push_create-release.yml/badge.svg?branch=master)](https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs/actions/workflows/on-push_create-release.yml)
+
 ## Overview
 
 Blockchain Web Services (BWS) is a comprehensive platform offering a suite of blockchain-based solutions, designed to simplify and enhance the integration of blockchain technology into various business and individual needs.
