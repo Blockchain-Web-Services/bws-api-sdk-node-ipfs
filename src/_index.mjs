@@ -1,25 +1,31 @@
-import { uploadJSONToIPFSAsync, uploadStreamToIPFSAsync } from "./ipfs-bws.mjs";
+import { uploadJSONToIPFSAsync, uploadFileToIPFSAsync, uploadStreamToIPFSAsync, callAxios } from "./ipfs-bws.mjs";
 
 class BWSIPFS {
     constructor(param1) {
         this.config = sanitizeConfig(param1);
     }
 
-    async uploadJSONAsync(json) {
-        return await uploadJSONToIPFSAsync(this.config, json);
+    /* SDK functions */
+
+    async uploadJSONAsync(json, description) {
+        return await uploadJSONToIPFSAsync(this.config, json, description);
     }
 
-    async uploadStreamAsync(stream, contentType = "application/octet-stream") {
-        return await uploadStreamToIPFSAsync(this.config, stream, true, contentType);
+    async uploadFileAsync(filePath, description) {
+        return await uploadFileToIPFSAsync(this.config, filePath, description);
+    }
+
+    async uploadStreamAsync(stream, description) {
+        return await uploadStreamToIPFSAsync(this.config, stream, description);
     }
 }
 
-/*********************/
+
 /* private functions */
 
 function refactorConfig(jsonParam) {
     const config = {};
-    if (jsonParam.apikey) {
+    if (jsonParam?.apikey) {
         config.apikey = jsonParam.apikey;
     } else {
         throw new Error("BWS API Key is required. Go www.bws.ninja to get one.");
@@ -30,18 +36,21 @@ function refactorConfig(jsonParam) {
 function sanitizeConfig(param1) {
     let config = {};
 
-    if (typeof param1 === 'string') {
-        config.apikey = param1;
-    }
-
-    const isJsonParam = typeof param1 === 'object';
-    if (isJsonParam) {
-        config = refactorConfig(param1);
+    switch (typeof param1) {
+        case 'string':
+            if (!param1) throw new Error("BWS API Key is required. Go www.bws.ninja to get one.");
+            config.apikey = param1;
+            break;
+        case 'object':
+            config = refactorConfig(param1);
+            break;
+        default:
+            throw new Error("BWS API Key is required. Go www.bws.ninja to get one.");
     }
 
     return config;
 }
-/*********************/
+
 
 
 export { BWSIPFS };

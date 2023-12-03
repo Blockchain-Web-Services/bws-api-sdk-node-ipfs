@@ -1,0 +1,14 @@
+{
+  "name": "upload-json-to-ipfs",
+  "version": "1.0.0",
+  "description": "BWS.IPFS.Upload example on how to save a JSON in the IPFS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blockchain Web Services",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

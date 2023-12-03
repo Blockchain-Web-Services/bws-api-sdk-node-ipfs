@@ -1,7 +1,7 @@
 {
-  "name": "@blockchain-web-services/ipfs",
-  "version": "1.0.0",
-  "description": "BWS Node IPFS library.",
+  "name": "@bws-sdk/ipfs",
+  "version": "1.0.1",
+  "description": "Blockchain Web Services NodeJS IPFS library.",
   "main": "_index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Blockchain-Web-Services/bws-api-sdk-node-ipfs#readme",
   "dependencies": {
-    "axios": "^1.5.1"
+    "axios": "^1.5.1",
+    "fs": "^0.0.1-security"
   }
 }
