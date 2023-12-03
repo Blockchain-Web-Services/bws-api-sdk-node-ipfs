@@ -3,10 +3,30 @@ on:
   push:
     branches:
       - master
-
 jobs:
-  build:
+
+  paths-filter:
     runs-on: ubuntu-latest
+    outputs:
+      package_changed: ${{ steps.filter.outputs.package }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          package:
+            - 'src/package.json'
+    # run only if 'workflows' files were changed
+    - name: workflow tests
+      if: steps.filter.outputs.package == 'true'
+      run: echo "package file changed"
+
+  publish:
+    runs-on: ubuntu-latest
+    # Wait from the paths-filter to be completed before starting next-job
+    needs: paths-filter
+    if: needs.paths-filter.outputs.package_changed == 'true'
     steps:
       - uses: actions/checkout@v4
       # Setup .npmrc file to publish to npm
