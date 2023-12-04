@@ -36,6 +36,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: |
           cd src
+          cp ../README.md .
           npm ci
           npm publish --access=public 
         env:

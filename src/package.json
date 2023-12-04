@@ -1,6 +1,6 @@
 {
   "name": "@bws-sdk/ipfs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Blockchain Web Services NodeJS IPFS library.",
   "main": "_index.mjs",
   "scripts": {
